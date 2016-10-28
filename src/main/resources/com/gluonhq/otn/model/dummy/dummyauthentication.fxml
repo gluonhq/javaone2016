@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<View fx:id="view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.model.dummy.DummyAuthenticationPresenter">
+    <center>
+        <VBox styleClass="signin-box" alignment="CENTER_LEFT">
+            <Label fx:id="label" />
+            <TextField fx:id="username"/>
+        </VBox>
+    </center>
+</View>

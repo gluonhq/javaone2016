@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import com.gluonhq.maps.MapView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<View fx:id="venue" styleClass="venue-view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.VenuePresenter">
+    <center>
+        <StackPane alignment="TOP_CENTER">
+            <!-- ImageView lies beneath the rest of the content to fix OTN-469 -->
+            <ImageView fx:id="imageView" preserveRatio="true"/>
+            <GridPane fx:id="venueDetail" styleClass="venue-detail">
+                <!-- A transparent spacer to push down the rest of the content to show imageView-->
+                <Region fx:id="imageSpacer" GridPane.rowIndex="0"/>
+                <Label fx:id="name" styleClass="name" wrapText="true" GridPane.rowIndex="1" />
+                <Label fx:id="address" styleClass="address" wrapText="true" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" minHeight="70" alignment="TOP_LEFT"/>
+                <MapView fx:id="mapView" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS" GridPane.hgrow="ALWAYS"/>
+            </GridPane>
+        </StackPane>
+    </center>
+</View>

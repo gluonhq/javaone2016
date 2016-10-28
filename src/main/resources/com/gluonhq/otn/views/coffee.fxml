@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.ProgressBar?>
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import eu.hansolo.fx.qualitygauge.QualityGauge?>
+<View fx:id="coffeeView" styleClass="coffee-view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.CoffeePresenter">
+    <top>
+        <VBox fx:id="instructionsContainer" styleClass="instructions-container">
+            <ProgressBar fx:id="indicator" progress="0.0" BorderPane.alignment="CENTER" />
+            <Label fx:id="instructions" styleClass="instructions"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox fx:id="coffeeBox" styleClass="coffee-box" VBox.vgrow="ALWAYS" >
+            <Label fx:id="typeLabel"/>
+            <VBox fx:id="coffeeTypes" styleClass="coffee-types"/>
+            <Label fx:id="strengthLabel"/>
+            <QualityGauge fx:id="strengthGauge" value="1"/>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox fx:id="submitContainer" alignment="center" prefHeight="50" >
+            <Button fx:id="placeOrder" styleClass="submit-button" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        </HBox>
+    </bottom>
+</View>

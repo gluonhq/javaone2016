@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.web.WebView?>
+
+<View fx:id="iotworkshopView" styleClass="iotworkshop-view" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.IOTWorkshopPresenter">
+   <center>
+      <WebView fx:id="webView" />
+   </center>
+</View>

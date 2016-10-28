@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<View fx:id="sponsor" styleClass="sponsor-view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.SponsorPresenter">
+   <center>
+      <StackPane alignment="TOP_CENTER">
+         <!-- ImageView lies beneath the rest of the content to fix OTN-469 -->
+         <ImageView fx:id="imageView" preserveRatio="true"/>
+         <VBox fx:id="sponsorDetail" styleClass="sponsor-detail">
+            <!-- A transparent spacer to push down the rest of the content to show imageView-->
+            <Region fx:id="imageSpacer"/>
+            <ScrollPane VBox.vgrow="ALWAYS" hbarPolicy="NEVER" styleClass="edge-to-edge" fitToWidth="true">
+               <VBox>
+                  <StackPane>
+                     <ImageView fx:id="logo" />
+                  </StackPane>
+                  <Label fx:id="name" styleClass="name" wrapText="true" VBox.vgrow="NEVER" />
+                  <Label fx:id="details" styleClass="details" wrapText="true" maxHeight="Infinity" />
+               </VBox>
+            </ScrollPane>
+         </VBox>
+      </StackPane>
+   </center>
+</View>

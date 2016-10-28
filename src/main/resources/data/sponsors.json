@@ -1,0 +1,26 @@
+/**
+ * Copyright (c) 2016, Gluon Software
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation and/or other materials provided
+ *    with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse
+ *    or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+[{"uuid":"sponsor_4897","name":"Couchbase","summary":"www.couchbase.com/","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7614/16_Couchbase_600x200_clr.png","section":"BRONZE","splash":false,"banner":false},{"uuid":"sponsor_6270","name":"AOL","summary":"engineering.aol.com","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7966/16_AOL_600x200_blk.png","section":"BRONZE","splash":false,"banner":false},{"uuid":"sponsor_5301","name":"New Relic","summary":"www.newrelic.com","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7901/16_New%2520Relic_600x200_clr.png","section":"SILVER","splash":false,"banner":false},{"uuid":"sponsor_6061","name":"Lightbend Inc.","summary":"www.lightbend.com/","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7900/16_Lightbend_600x200_clr.png","section":"BRONZE","splash":false,"banner":false},{"uuid":"sponsor_4923","name":"Datalogics, Inc.","summary":"www.datalogics.com/","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_6042","name":"OWASP Foundation","summary":"www.owasp.org","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_5065","name":"Goldman Sachs","summary":"www.goldmansachs.com/what-we-do/engineering/","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_5586","name":"Stormpath","summary":"stormpath.com/","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_5749","name":"IBM","summary":"ibm.com/oracle","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7899/15_IBM_600x200_clr.png","section":"DIAMOND","splash":false,"banner":false},{"uuid":"sponsor_6347","name":"Sysdig","summary":"www.sysdig.com","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_5763","name":"Red Hat","summary":"www.redhat.com/en","picture":"","section":"SILVER","splash":false,"banner":false},{"uuid":"sponsor_6244","name":"Consensus Corp","summary":"","picture":"","section":"INNOVATION","splash":false,"banner":false},{"uuid":"sponsor_5061","name":"GitHub, Inc.","summary":"","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7898/14_GitHub_600x200_clr.png","section":"SILVER","splash":false,"banner":false},{"uuid":"sponsor_4774","name":"Atlassian","summary":"www.atlassian.com","picture":"https://published-rs.lanyonevents.com/published/oracleus2016/files/7896/15_Atlassian_600x200_clr.png","section":"GOLD","splash":false,"banner":false}]

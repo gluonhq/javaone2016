@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Separator?>
+<View fx:id="aboutView" styleClass="about-view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.AboutPresenter">
+    <center>
+        <ScrollPane hbarPolicy="NEVER" styleClass="edge-to-edge" fitToWidth="true">
+            <VBox styleClass="container">
+                <!--
+                <ImageView fx:id="otnLogo" preserveRatio="true" styleClass="otn-logo"/>
+                <Label fx:id="otnLabel"/>
+                <Separator/>
+                -->
+                <ImageView fx:id="oracleLogo" preserveRatio="true" styleClass="oracle-logo"/>
+                <Label fx:id="oracleLabel"/>
+                <Separator/>
+                <VBox styleClass="gluon-logo-container">
+                    <ImageView fx:id="gluonLogo" preserveRatio="true" styleClass="gluon-logo"/>
+                    <Label fx:id="gluonLabel"/>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</View>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.mvc.View?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<View fx:id="vote3DView" styleClass="vote-view" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gluonhq.otn.views.Vote3DPresenter">
+    <top>
+        <VBox fx:id="printContainer" styleClass="printing-cardCell">
+            <VBox styleClass="instructions-container">
+                <Label fx:id="instructions" styleClass="instructions"/>
+            </VBox>
+            <ImageView fx:id="printingImage" styleClass="printing-cardCell"/>
+        </VBox>
+    </top>
+    <center>
+        <VBox fx:id="voteContainer">
+            <VBox styleClass="instructions-container" minHeight="45">
+                <Label fx:id="voteInstruction" styleClass="instructions"/>
+            </VBox>
+        </VBox>
+    </center>
+    <bottom>
+        <HBox fx:id="submitContainer" alignment="center" prefHeight="50">
+            <Button fx:id="voteButton" styleClass="submit-button" HBox.hgrow="ALWAYS" maxWidth="Infinity" maxHeight="Infinity"/>
+        </HBox>
+    </bottom>
+</View>

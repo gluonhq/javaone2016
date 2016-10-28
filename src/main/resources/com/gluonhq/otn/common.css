@@ -1,0 +1,926 @@
+/**
+ * Copyright (c) 2016, Gluon Software
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation and/or other materials provided
+ *    with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse
+ *    or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.root {
+    -fx-font-family: "FakeFontFamily";  /*forces default OS font family selection*/
+    -track-core-platform: #9c27B0;
+    -track-emerging-languages: #8bc24a;
+    -track-cloud-server: #03a9F4;
+    -track-devices: #ff9800;
+    -track-client: #cddc39;
+    -track-devtools: #ff5722;
+    -track-devops-methodologies: #673ab7;
+    -track-unknown: #1b67b3;
+    -lighter-black: #212121;
+    -carve-badge-border: -alternate-color;
+    -carve-badge-border-error: RED;
+    -carve-badge-text-error: RED;
+    -toast-background: #666666;
+    -map-marker-color: #566A92;
+}
+
+.status-bar {
+    -fx-background-color: -primary-swatch-700;
+}
+.status-bar:error {
+    -fx-background-color: -alternate-color;
+}
+
+/* use alternate color for bottom border on text input controls */
+.text-input:focused {
+    -fx-border-width: 0em 0em 0.166667em 0em;
+    -fx-border-color: transparent transparent -alternate-color transparent;
+}
+
+/* Gathering together all cells to standardize styling */
+.venue-cell,
+.exhibitor-cell,
+.note-cell {
+    -fx-min-height: 4.50em;
+    -fx-pref-height: 4.50em;
+}
+
+.venue-cell > .list-tile > .text-box > .primary-text,
+.speaker-cell > .list-tile > .text-box > .primary-text,
+.sponsor-cell > .list-tile > .text-box > .primary-text,
+.exhibitor-cell > .list-tile > .text-box > .primary-text,
+.schedule-cell > .list-tile > .text-box > .primary-text,
+.note-cell > .list-tile > .text-box > .primary-text {
+    -fx-text-fill: -primary-swatch-500;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.venue-cell > .list-tile > .icon-text,
+.speaker-cell > .list-tile > .icon-text,
+.sponsor-cell > .list-tile > .icon-text,
+.exhibitor-cell > .list-tile > .icon-text,
+.schedule-cell > .list-tile > * > .icon-text,
+.note-cell > .list-tile > .icon-text {
+    -fx-text-fill: -alternate-color;
+}
+
+/** Charm List View headers **/
+
+.schedule-view .list-cell.header-cell,
+.speakers-list-view .list-cell.header-cell,
+.sponsor-list-view .list-cell.header-cell,
+.search-list-view .list-cell.header-cell,
+.sessions-list .list-cell.header-cell{
+    -fx-background-insets: 0, 0em 0em 0em 0.416667em;
+    -fx-background-color: -otn-darker1;
+    -fx-font-size: 1em;
+}
+
+.schedule-view .list-cell.header-cell .list-tile .primary-text,
+.schedule-view .list-cell.header-cell .list-tile .primary-graphic,
+.speakers-list-view .list-cell.header-cell .list-tile .primary-text,
+.speakers-list-view .list-cell.header-cell .list-tile .primary-graphic,
+.sponsor-list-view .list-cell.header-cell .list-tile .primary-text,
+.sponsor-list-view .list-cell.header-cell .list-tile .primary-graphic,
+.search-list-view .list-cell.header-cell .list-tile .primary-text,
+.search-list-view .list-cell.header-cell .list-tile .primary-graphic,
+.sessions-list .list-cell.header-cell .list-tile .primary-text,
+.sessions-list .list-cell.header-cell .list-tile .primary-graphic{
+    -fx-text-fill: white;
+}
+
+
+.schedule-view .list-cell.header-cell:empty,
+.speakers-list-view .list-cell.header-cell:empty,
+.sponsor-list-view .list-cell.header-cell:empty,
+.search-list-view .list-cell.header-cell:empty {
+    -fx-background-color: transparent;
+    -fx-border-width: 0em;
+    -fx-border-color: transparent;
+}
+
+/*--- Schedule View ---*/
+
+.schedule-view .list-view {
+    -fx-padding: 0em;
+}
+
+.list-cell.schedule-cell {
+    -fx-padding: 0em;
+    -fx-background-insets: 0em, 0em 0em 0em 0.4167em;
+    -fx-background-color: -track-unknown, white;
+}
+.list-cell.schedule-cell:track-core-platform {
+    -fx-background-color: -track-core-platform, white;
+}
+.list-cell.schedule-cell:track-emerging-languages {
+    -fx-background-color: -track-emerging-languages, white;
+}
+.list-cell.schedule-cell:track-cloud-server {
+    -fx-background-color: -track-cloud-server, white;
+}
+.list-cell.schedule-cell:track-devices {
+    -fx-background-color: -track-devices, white;
+}
+.list-cell.schedule-cell:track-client {
+    -fx-background-color: -track-client, white;
+}
+.list-cell.schedule-cell:track-devtools {
+    -fx-background-color: -track-devtools, white;
+}
+.list-cell.schedule-cell:track-devops-methodologies {
+    -fx-background-color: -track-devops-methodologies, white;
+}
+.list-cell.schedule-cell:track-unknown {
+    -fx-background-color: -track-unknown, white;
+}
+
+.schedule-cell > .list-tile > .text-box {
+    -fx-padding: 0.833333em 0em 0.833333em 0.833333em;
+}
+
+.schedule-cell > .list-tile > .text-box > .secondary-text {
+    -fx-text-fill: dimgray;
+    -fx-font-size: 1.05em;
+}
+.schedule-cell > .list-tile > .text-box > .tertiary-text {
+    -fx-text-fill: dimgray;
+    -fx-font-size: 0.95em;
+}
+
+.schedule-cell > .list-tile > .secondary-graphic {
+    -fx-padding: 0em;
+}
+
+.schedule-cell > .list-tile > .secondary-graphic > .indicator {
+    -fx-background-color: -otn-lighter2;
+    -fx-pref-width: 2.5em;
+    -fx-pref-height: 2.5em;
+    -fx-shape: "M 0 0 L 1 0 L 1 1 Z";
+    -fx-scale-shape: true;
+}
+
+.schedule-cell > .list-tile > .secondary-graphic > .indicator > .icon-text {
+    -fx-text-fill: white;
+    -fx-font-size: 1em;
+}
+.schedule-cell > .list-tile > .secondary-graphic > .schedule.indicator > .icon-text {
+    -fx-padding: 0.166667em 0.083333em 0.083333em 0.166667em;
+}
+.schedule-cell > .list-tile > .secondary-graphic > .favorite.indicator > .icon-text {
+    -fx-padding: 0.166667em 0.166667em 0.083333em 0.166667em;
+    -fx-font-size: 0.9em;
+}
+
+/* Avatar */
+
+.avatar.list-avatar > .decoration {
+    -fx-fill:transparent;
+    -fx-stroke: -primary-swatch-500;
+    -fx-stroke-width: 0.083333em;
+    -fx-effect: dropshadow(three-pass-box,-elevation-shadow-color, 2, 0, 0, 1);
+}
+
+/* Activity Feed */
+
+.splash-view,
+.card-pane > .charm-list-view > .list-view {
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: stretch;
+}
+.splash-view.bg-0,
+.card-pane.bg-0 > .charm-list-view > .list-view {
+    -fx-background-image: url("activity-feed-bkg-0.jpg");
+}
+.splash-view.bg-1,
+.card-pane.bg-1 > .charm-list-view > .list-view {
+    -fx-background-image: url("activity-feed-bkg-1.jpg");
+}
+.splash-view.bg-2,
+.card-pane.bg-2 > .charm-list-view > .list-view {
+    -fx-background-image: url("activity-feed-bkg-2.jpg");
+}
+
+.card-pane > .charm-list-view > .list-view > .virtual-flow > .clipped-container > .sheet > .list-cell {
+    -fx-border-width: 0em;
+    /*-fx-padding: 0;*/
+    -fx-background-color: transparent;
+}
+
+.card .header {
+    /*-fx-background-color: #b5d1e2;*/
+    -fx-background-color: rgba(255,255,255, .80);
+    -fx-spacing: 0.833333em;
+    -fx-padding: 0.833333em;
+    -fx-background-radius: 0.592766em 0.592766em 0em 0em;
+    -fx-effect: dropshadow(three-pass-box, -elevation-shadow-color, 4, 0, 0, 2);
+}
+
+.card .header .title {
+    -fx-text-fill: black;
+    -fx-font-weight: normal;
+    -fx-font-size: 1.1em;
+    -fx-alignment: center-left;
+    -fx-wrap-text: true;
+}
+
+.card  {
+    /*-fx-padding: 0.833333em;*/
+    -fx-spacing: 0.416667em;
+    -fx-background-color: rgba(255,255,255,0.65);
+    -fx-background-radius: 0.592766em;
+}
+
+.card > .content {
+    -fx-text-fill: black;
+    -fx-background-color: transparent;
+    -fx-padding: 0.833333em;
+}
+
+.card > .image-container {
+    -fx-padding: 0.833333em 0.833333em 0em 0.833333em;
+}
+
+/** Style for card with single image **/
+.card > .image-container.single-image {
+    -fx-padding: 0em;
+}
+
+.card > .image-container.single-image > .content {
+    -fx-padding: 0 0.833333em 0em 0.833333em;
+}
+
+/* Session View and Speaker View */
+
+.session-view .session-info,
+.speaker-view .speaker-card {
+    -fx-spacing: 0em;
+}
+
+.session-view .session-info {
+    -fx-padding: 0.910488em;
+    -fx-max-width: infinity;
+    -fx-background-color: derive(-primary-swatch-500, -15%);
+    /*-fx-background-color: otn-darker2;*/
+    -fx-wrap-text: true;
+    -fx-text-fill: -text-light;
+}
+
+.session-view .session-info > .header {
+    -fx-text-fill: white;
+    -fx-font-size: 1.3em;
+    -fx-wrap-text: true;
+    -fx-max-width: infinity;
+}
+
+.session-view .session-info > .info {
+    -fx-text-fill: -otn-lighter2;
+}
+
+.session-view .session-summary {
+    -fx-padding: 0.910488em;
+    -fx-wrap-text: true;
+    -fx-text-alignment: justify;
+}
+
+/* Filter view inside session view */
+.sessions-filter .tool-bar {
+    -fx-alignment: center-right;
+}
+
+.sessions-filter .tab-pane > .tab-header-area > .headers-region > .tab > .tab-container > .tab-label {
+    /* Make tab text bigger */
+    -fx-font-size: 1.2em;
+}
+
+.sessions-filter .day-filter,
+.sessions-filter .track-filter,
+.sessions-filter .type-filter {
+    -fx-spacing: 0.833333em;
+    -fx-padding: 0.833333em 0em 0.833333em 0.833333em;
+}
+
+.sessions-filter .day-filter .check-box,
+.sessions-filter .track-filter .check-box,
+.sessions-filter .type-filter .check-box {
+    /* FIXME: for some reason check-box text is black by default - check in glisten */
+    -fx-text-fill: -text-light;
+}
+.sessions-filter .day-filter .check-box .box,
+.sessions-filter .track-filter .check-box .box,
+.sessions-filter .type-filter .check-box .box {
+    /* FIXME: for some reason check-box box is black by default - check in glisten.  */
+    /*-fx-background-color: -fx-shadow-highlight-color, -text-light, -fx-inner-border, -fx-body-color;*/
+}
+
+.sessions-filter > .button-container {
+    -fx-padding: 0em 1.083333em 0.833333em 0em;
+}
+
+.sessions-filter > .button-container .button {
+    -fx-text-fill: -primary-swatch-500;
+}
+
+/********************** Filter Button for Session View ***************************/
+
+.button.icon-toggle.filter-button:filter-enabled {
+    -fx-text-fill: -alternate-color;
+}
+
+/* Get rid of focus rect in scroll pane and list view */
+.exhibitor-detail .scroll-pane,
+.exhibitor-detail .scroll-pane:focused,
+.experiences-view .scroll-pane,
+.experiences-view .scroll-pane:focused,
+.sponsor-detail .scroll-pane,
+.sponsor-detail .scroll-pane:focused,
+.session-view .scroll-pane,
+.session-view .scroll-pane:focused,
+.speaker-view .sessions-list,
+.speaker-view .sessions-list:focused,
+.speaker-view .scroll-pane,
+.speaker-view .scroll-pane:focused {
+    -fx-background-insets: 0;
+}
+
+/* Speaker View */
+
+.speaker-view .speaker-card > .speaker-name {
+    -fx-font-size: 1.5em;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-max-width: infinity;
+    -fx-effect: dropshadow(three-pass-box, black, 10, 0, 0, 0);
+}
+
+.speaker-view .speaker-card > .speaker-company,
+.speaker-view .speaker-card > .speaker-title {
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+    -fx-max-width: infinity;
+}
+
+.speaker-view .speaker-summary {
+    -fx-font-size: 1em;
+    -fx-padding: 0.910488em;
+    -fx-wrap-text: true;
+    -fx-text-alignment: justify;
+}
+
+.session-notes-editor .title {
+    -fx-font-size: 1.1em;
+}
+
+.session-notes-editor {
+    -fx-padding: 0.910488em;
+}
+
+.session-notes.editor > .title {
+    -fx-font-size: 1.2em;
+}
+
+/* Session voting */
+/* FixME : This css should be a part of rating control */
+
+.rating > .container {
+    -fx-spacing: 0.333333em;
+}
+
+.rating > .container > .button {
+    -fx-text-fill: -alternate-color;
+    -fx-background-color: transparent;
+}
+
+.rating > .container > .button > .text {
+    -fx-font-size: 1.5em;
+}
+
+/** Vote and Session-Conflict Dialogs **/
+
+.vote-dialog > .container > .content {
+    -fx-spacing: 1.083333em;
+}
+
+.vote-dialog > .container > .content > .title {
+    -fx-font-size: 1.0em;
+}
+
+.vote-dialog > .container > .content > .session-title {
+    -fx-font-size: 0.9em;
+    -fx-wrap-text: true;
+}
+
+.vote-dialog > .container > .content > .share-container > .share-text {
+    -fx-font-size: 1.0em;
+}
+
+.vote-dialog > .container > .content > .share-container > .feedback-input {
+    -fx-text-fill: -lighter-black;
+    -fx-wrap-text: true;
+}
+
+.vote-dialog > .container > .content > .share-container > .feedback-input:focused > .content {
+    -fx-background-color: white;
+    -fx-background-insets: 0em;
+}
+
+.session-conflict-dialog > .container > .content {
+    -fx-spacing: 0.83333em;
+}
+
+.session-conflict-dialog > .container > .content > .session-pane > .radio-button {
+    -fx-text-fill: -lighter-black;
+}
+
+.session-conflict-dialog > .container > .content > .session-pane > .title {
+   -fx-padding: 0em 0em 0em 2.666667em;
+   -fx-wrap-text: true;
+   -fx-font-weight: bold;
+}
+
+.session-conflict-dialog > .container > .content > .session-pane > .label {
+   -fx-padding: 0em 0em 0em 2.666667em;
+   -fx-wrap-text: true;
+}
+
+/* Venue / Exhibitor / Sponsor View */
+
+.exhibitor-detail .name,
+.sponsor-detail .name,
+.venue-detail .name {
+    -fx-text-fill: -primary-swatch-500;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.4em;
+    -fx-padding: 1.2em 0em 0em 1.2em;
+}
+
+.venue-detail .address {
+    -fx-padding: 0em 0em 0em 1.2em;
+}
+
+.exhibitor-detail .booth {
+    -fx-padding: 0em 0em 0em 1.2em;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+.exhibitor-detail .details,
+.sponsor-detail .details {
+    -fx-padding: 0em 0em 0em 1.2em;
+    -fx-alignment: TOP_LEFT;
+}
+
+/* Authentication View */
+
+.signin-box {
+    -fx-padding: 1.1em;
+    -fx-spacing: 1.666667em;
+}
+
+
+/* TextArea */
+.text-area .content{
+    -fx-background-color: transparent;
+}
+
+.text-input {
+    -fx-font-size: 1em;
+}
+
+/* AvatarPane */
+.avatar-pane .header {
+    /*-fx-background-color: -primary-swatch-500;*/
+    -fx-background-color: derive(-primary-swatch-500, -15%);
+}
+
+.avatar-pane .header .arrow {
+    -fx-background-color: white;
+}
+
+.avatar-pane .content-box {
+    -fx-padding: 1.25em;
+    -fx-alignment: top-center;
+}
+
+.avatar-pane .content-box .name {
+    -fx-font-weight: bold;
+    -fx-font-size: 1.4em;
+}
+
+.avatar-pane .content-box .job-title,
+.avatar-pane .content-box .company{
+    -fx-font-weight: bold;
+}
+
+.avatar-pane .content-box .summary {
+    -fx-text-alignment: justify;
+    -fx-padding: 0.416667em 0em 0em 0em;
+}
+
+.avatar-pane .content-box .speaker-btn {
+    -fx-text-fill: -alternate-color;
+    -fx-font-size: 2em;
+}
+
+.avatar-pane .avatar {
+    -charm-radius: 2.083333em; 
+}
+
+.search-list-view .avatar,
+.speakers-list-view .avatar {
+    -charm-radius: 2.916667em; 
+}
+
+.speaker-card .avatar {
+    -charm-radius: 3.333333em; 
+}
+/* Splash view */
+
+.splash-view .default-card {
+    -fx-padding: 0em 1.666667em 0em 1.666667em;
+}
+
+/**************************
+/*   OTN EXPERIENCES
+/**************************
+
+/** COFFEE **/
+
+.coffee-box {
+    -fx-padding: 1.1em;
+    -fx-spacing: 1.666667em;
+    -fx-alignment: top-center;
+}
+
+.coffee-box > .coffee-types {
+    -fx-spacing: 0.833333em;
+}
+
+.coffee-box > .label {
+    -fx-text-fill: -primary-swatch-500;
+    -fx-font-weight: bold;
+    -fx-font-size: 1.1em;
+}
+
+/* Vote for 3D */
+.vote-view .printing-card {
+    -fx-padding: 0.50em 0.33em 0 0.33em;
+    -fx-spacing: 0.33em;
+}
+
+.vote-view .result-label {
+    -fx-text-fill: white;
+    -fx-font-size: 4.0em;
+}
+
+.vote-view .instructions-container {
+    -fx-alignment: center;
+    -fx-padding: 0.33em;
+}
+
+/* Carve a Badge View */
+
+.carve-badge > .container {
+    -fx-padding: 0.833333em;
+    -fx-vgap: 0.833333em;
+    -fx-hgap: 0.833333em;
+}
+
+.carve-badge > .container > .instructions {
+    -fx-wrap-text: true;
+}
+
+.carve-badge > .container > .badge-pane {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.carve-badge > .container > .badge-pane > .draw-pane {
+    -fx-background-color: -primary-swatch-100;
+    -fx-border-color: -carve-badge-border;
+    -fx-border-width: 0.208333em;
+}
+
+.carve-badge > .container > .badge-pane > .draw-pane:error {
+    -fx-border-color: -carve-badge-border-error;
+}
+
+.carve-badge > .container > .badge-pane > .draw-pane > .path {
+    -fx-stroke-width: 0.416667em;
+    -fx-stroke: -primary-swatch-600;
+    -fx-fill: -otn-lighter2;
+}
+
+.carve-badge > .container > .badge-pane > .draw-pane:error > .path {
+    -fx-stroke: -primary-swatch-200;
+}
+
+.carve-badge > .container > .errorLabel {
+    -fx-font-size: 1em;
+    -fx-wrap-text: true;
+    -fx-text-fill: -carve-badge-text-error;
+}
+
+.carve-badge .reset-button {
+    -fx-background-color: -primary-swatch-500;
+    -fx-font-size: 1.2em;
+}
+
+.dialog .dialog-badge-title.label {
+    -fx-font-size: 1em;
+    -fx-font-family: "Roboto Medium";
+    -fx-wrap-text: true;
+}
+
+.dialog .dialog-badge-description {
+    -fx-font-size: 1em;
+    -fx-font-family: "FakeFontFamily";  /* forces OS default font family selection */
+    -fx-wrap-text: true;
+}
+
+.dialog .dialog-badge-grid {
+    -fx-hgap: 0.5em;
+    -fx-vgap: 1em;
+}
+
+.dialog .dialog-badge-main-container {
+    -fx-spacing: 0.666667em;
+}
+
+.dialog .dialog-badge-checkbox {
+    -fx-padding: 0 0 0 1.5em;
+    -fx-text-fill: -lighter-black;
+}
+
+/* Common style for experiences */
+
+.game-view .instructions-container,
+.embroider-view .instructions-container {
+    -fx-alignment: center;
+    -fx-padding: 0.833em 0.33em 0.33em 0.33em;
+}
+
+.coffee-view .instructions,
+.carve-badge .instructions,
+.game-view .instructions,
+.embroider-view .instructions,
+.vote-view .instructions {
+    -fx-font-size: 1em;
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+}
+
+.coffee-view .submit-button,
+.carve-badge .submit-button,
+.game-view .submit-button,
+.embroider-view .submit-button,
+.vote-view .submit-button {
+    -fx-background-color: -alternate-color;
+    -fx-font-size: 1.2em;
+}
+
+/* Experience QR Dialog */
+
+.qr-dialog > .container {
+    -fx-spacing: 0.25em;
+}
+
+.qr-dialog > .container > .content {
+    -fx-alignment: top-center;
+    -fx-padding: 0.25em;
+}
+
+.qr-dialog > .container > .content > .message {
+    -fx-wrap-text : true;
+}
+
+/* Login Prompter and Placeholder */
+
+.login-prompter, .placeholder {
+    -fx-padding: 0.833333em 1.666667em 0em 1.666667em;
+}
+
+.login-prompter {
+    -fx-spacing: 1.666667em;
+}
+
+.placeholder {
+    -fx-spacing: 1.249995em; /* 15px */
+}
+
+.login-prompter > .message {
+    -fx-padding: -2em 0 0 0;
+}
+
+.placeholder-graphic {
+    -fx-font-size: 10em;
+    -fx-text-fill: -otn-lighter1;
+    /*-fx-effect: dropshadow(three-pass-box,-elevation-shadow-color, 2, 0, 0, 1);*/
+}
+
+.placeholder .title {
+    -fx-font-size: 1.4em;
+    -fx-font-weight: bold;
+}
+
+.login-prompter .title,
+.login-prompter .message, 
+.placeholder .message,
+.experience-holder > .message {
+    -fx-text-alignment: center;
+}
+
+/* Search View */
+
+.search-app-bar.app-bar > .title-box {
+    -fx-alignment: center-left;
+}
+
+.search-app-bar.app-bar > .title-box > .search-text-field {
+    -fx-text-fill: -text-dark;
+    -fx-prompt-text-fill: -otn-lighter2;
+    -fx-border-color: transparent;
+    -fx-font-family: "Roboto Medium";
+    -fx-font-size: 1.2em;
+}
+
+/* Toast */
+
+.toast > .label {
+    -fx-text-fill: white;
+    -fx-background-color: -toast-background;
+    -fx-background-radius: 2em;
+    -fx-padding: 0.833333em 1.5em 0.833333em 1.5em;
+}
+
+.navigation-drawer .primary-title {
+    -fx-text-fill: white;
+    -fx-font-size: 2em;
+    -fx-font-weight: bold;
+    -fx-padding: 0em 0em 0.416667em 0.416667em;
+}
+
+/* Experiences View */
+
+.experiences-view .experiences-grid-pane {
+    -fx-padding: 1.66667em 0.833333em 0.833333em 0.833333em;
+    -fx-hgap: 0.833333em;
+    -fx-vgap: 0.833333em;
+    -fx-alignment: center;
+}
+
+.experiences-view .experiences-grid-pane > .experience-holder {
+    -fx-padding: 0.833333em;
+}
+
+.experiences-view .experiences-grid-pane > .experience-holder > .message {
+    /*-fx-text-fill: -otn-darker2;*/
+    -fx-font-size: 1.1em;
+    /*-fx-font-weight: bold;*/
+}
+
+.experiences-view .experiences-grid-pane > .experience-holder > .placeholder-graphic {
+    -fx-font-size: 6em;
+}
+
+/********************** FAB **********************/
+.fab {
+    -fx-background-color: -fab-primary-background-color;
+}
+
+/* Darker background color when hover or pressed */
+.fab:hover,
+.fab:pressed {
+    -fx-background-color: derive( -fab-primary-background-color, -10%);
+}
+
+.button.round.action.icon-text.fab.secondary {
+    -fx-background-color: -fab-secondary-background-color;
+    /* graphic color for secondary FAB */
+    -fx-text-fill: -fab-primary-background-color;
+}
+
+/* Darker background color when hover or pressed */
+.button.round.action.icon-text.fab.secondary:hover,
+.button.round.action.icon-text.fab.secondary:pressed {
+    -fx-background-color: derive( -fab-secondary-background-color, -10%);
+}
+
+/********************** Gluon Map Marker ***********************/
+
+.poi-layer > * > .marker-container > .label.icon-text.marker {
+    -fx-font-size: 3em;
+    /*-fx-text-fill: -lighter-black;*/
+    -fx-text-fill: -map-marker-color;
+    /*Add padding to bottom to place marker bottom as center*/
+    -fx-padding: 0em 0em 1.5em 0em;
+    -fx-effect: -elevation-z2;
+}
+
+/* Input Field Arrow */
+.caret-handle {
+    -fx-shape: null;
+    -fx-padding: 0;
+}
+
+/* QR view */
+.qrcode .container {
+    -fx-spacing: 0.833333em;
+    -fx-alignment: CENTER;
+}
+.qrcode .container .label {
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+    -fx-padding: 0em 0.833333em 0em 0.833333em;
+}
+
+.bottom-nav > .bottom-nav-button {
+    -fx-effect: null;
+}
+
+/******************** Offline Dialog ************************/
+.offline-dialog-content {
+    -fx-spacing: 0.833333em;
+}
+
+.offline-dialog-content > .check-box {
+    -fx-text-fill: -text-light;
+}
+
+/********************** EULA **********************/
+
+.eula-view > .button-box {
+    -fx-pref-height: 4.125em; /* 4.125em = 55px */
+    -fx-padding: 0.375em 0 0 0; /* 0.375em = 5px */
+}
+
+.eula-view .accept-button {
+    -fx-max-width: infinity;
+    -fx-max-height: infinity;
+    -fx-background-color: -alternate-color;
+    -fx-font-size: 1.2em;
+}
+
+/********************** ABOUT **********************/
+
+.about-view > .scroll-pane > .viewport > * > .container {
+    -fx-alignment: top-center;
+    -fx-padding: 1em 2em 1em 2em;
+    -fx-spacing: 0.25em;
+}
+
+.about-view > .scroll-pane > .viewport > * > .container > .label {
+    -fx-wrap-text: true;
+    -fx-font-size: 1.10em;
+}
+
+.about-view > .scroll-pane > .viewport > * > .container > .separator {
+    -fx-padding: 1em 0 0 0;
+}
+
+.about-view > .scroll-pane > .viewport > * > .container > .gluon-logo-container {
+    -fx-alignment: top_center;
+    -fx-padding: 1.5em 1em 1em 1em;
+    -fx-spacing: 1.5em;
+}
+
+.about-view > .scroll-pane > .viewport > * > .container > .gluon-logo-container > .label {
+    -fx-wrap-text: true;
+    -fx-text-alignment: center;
+    -fx-font-size: 1.10em;
+}
+
+.carve-badge > .progress-bar,
+.iotworkshop-view > .progress-bar,
+.coffee-view > .instructions-container> .progress-bar{
+    -fx-padding: 0.085em 1 0 1;
+    -fx-color: -alternate-color;
+}
+.coffee-view .instructions-container {
+    -fx-spacing: 0.2em;
+    -fx-alignment: center;
+    -fx-padding: 0em 0.33em 0.33em 0.33em;
+}

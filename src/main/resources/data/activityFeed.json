@@ -1,0 +1,51 @@
+/**
+ * Copyright (c) 2016, Gluon Software
+ * All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the
+ * following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
+ * 2. Redistributions in binary form must reproduce the above copyright notice,
+ *    this list of conditions and the following disclaimer in the documentation and/or other materials provided
+ *    with the distribution.
+ *
+ * 3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse
+ *    or promote products derived from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+ * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+ * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+[
+  {
+    "uuid": "1",
+    "creationDate": 1446143400,
+    "type": "TWITTER",
+    "title": "This is the title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet mi eu quam ultrices euismod vitae a elit. Vivamus sed diam vel eros accumsan dapibus sit amet quis justo. Ut non aliquet quam.",
+    "thumbnails": ["http://lorempixel.com/400/200","http://lorempixel.com/402/201"]
+  },
+  {
+    "uuid": "2",
+    "creationDate": 1446138000,
+    "type": "OTN",
+    "title": "",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet mi eu quam ultrices euismod vitae a elit. Vivamus sed diam vel eros accumsan dapibus sit amet quis justo. Ut non aliquet quam. Aenean dapibus orci at orci viverra dapibus. Donec elementum ante eget dictum hendrerit. Mauris sagittis, ex vel sagittis pharetra, neque metus aliquam leo, sit amet molestie sapien mauris convallis arcu. Nunc ut felis ligula.\nCurabitur condimentum nec tortor vel euismod. Cras dignissim sollicitudin lobortis. Suspendisse vestibulum nunc ipsum, hendrerit condimentum sapien interdum quis. Nulla tincidunt leo non velit iaculis, et fermentum libero sodales. Nulla ullamcorper mauris et sagittis feugiat. Vivamus ac laoreet odio. Nam vel hendrerit leo",
+    "thumbnails": ["http://lorempixel.com/400/200"]
+  },
+  {
+    "uuid": "3",
+    "creationDate": 1446055200,
+    "type": "FACEBOOK",
+    "title": "This is a very lonooooooonnnnnnnnng wrapping title",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sit amet mi eu quam ultrices euismod vitae a elit. Vivamus sed diam vel eros accumsan dapibus",
+    "thumbnails": ["http://lorempixel.com/400/200", "http://lorempixel.com/402/201", "http://lorempixel.com/404/202"]
+  }
+]

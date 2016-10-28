@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.gluonhq.otn" android:versionCode="127" android:versionName="1.0">
+        <supports-screens android:xlargeScreens="true"/>
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+        <uses-permission android:name="android.permission.CALL_PHONE"/>
+        <uses-permission android:name="android.permission.VIBRATE"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+        <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="21"/>
+        <application android:label="JavaOne16" android:name="android.support.multidex.MultiDexApplication" android:icon="@mipmap/ic_launcher">
+                <activity android:name="javafxports.android.FXActivity" 
+                          android:label="JavaOne16" 
+                          android:launchMode="singleTop"
+                          android:screenOrientation="portrait"
+                          android:configChanges="screenSize">
+                        <!-- <meta-data android:name="swipekeyboard" android:value="true"/> -->
+                        <meta-data android:name="java.args" android:value="notificationId"/>
+                        <meta-data android:name="restorekeyboard" android:value="true"/>
+                        <meta-data android:name="main.class" android:value="com.gluonhq.otn.OTNApplication"/>
+                        <meta-data android:name="preloader.class" android:value="com.gluonhq.otn.OTNPreloader"/>
+                        <meta-data android:name="debug.port" android:value="0"/>
+                        <intent-filter>
+                                <action android:name="android.intent.action.MAIN"/>
+                                <category android:name="android.intent.category.LAUNCHER"/>
+                        </intent-filter>
+                </activity>
+                <activity
+                    android:name="com.gluonhq.impl.charm.down.android.notifications.NotificationActivity"
+                    android:parentActivityName="javafxports.android.FXActivity">
+                    <meta-data
+                            android:name="android.support.PARENT_ACTIVITY"
+                            android:value="javafxports.android.FXActivity"/>
+                </activity>
+                <receiver android:name="com.gluonhq.impl.charm.down.android.notifications.AlarmReceiver" />
+        </application>
+</manifest>

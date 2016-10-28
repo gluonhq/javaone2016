@@ -1,0 +1,36 @@
+apply plugin: ThemePlugin
+
+class ThemePlugin implements Plugin<Project> {
+
+    @Override
+    void apply(Project project) {
+        def themes = project.container(Theme)
+        project.extensions.themes = themes
+
+        themes.all { theme ->
+            theme.cssFiles = project.sourceSets.main.resources.matching {
+                include "com/gluonhq/otn/${theme.name}*.css"
+            }
+            def copyTask = project.task("theme${theme.name.capitalize()}", type: Copy) {
+                from theme.cssFiles
+                into project.sourceSets.main.output.resourcesDir
+                rename { String fileName ->
+                    fileName.replace("${theme.name}", "javaone")
+                }
+            }
+            copyTask.dependsOn project.tasks.classes
+            def task = project.task("theme${theme.name.capitalize()}Run")
+            task.dependsOn copyTask, project.tasks.run
+            project.tasks.run.mustRunAfter copyTask
+        }
+    }
+}
+
+class Theme {
+    final String name
+    FileCollection cssFiles
+
+    Theme(String name) {
+        this.name = name
+    }
+}
